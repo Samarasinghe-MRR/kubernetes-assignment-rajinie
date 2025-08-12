@@ -13,7 +13,6 @@ This project demonstrates deploying a containerized **Java Spring Boot API** to 
 - HTTPS support via sslip.io
 - **Horizontal Pod Autoscaling (HPA)** for scalability
 
-![Architecture Diagram](screenshots/architecture.png) <!-- Add your diagram here -->
 
 ---
 
@@ -62,7 +61,6 @@ docker build -t us-central1-docker.pkg.dev/betbazar-ops/java-api-repo/java-api:l
 docker push us-central1-docker.pkg.dev/betbazar-ops/java-api-repo/java-api:latest
 ```
 
-![Artifact Registry](screenshots/artifact-registry.png)
 
 ### 4.2 Deploy to GKE
 
@@ -86,7 +84,7 @@ kubectl apply -f k8s/06-hpa.yaml
 kubectl get pods -n java-api
 ```
 
-![Running Pods](screenshots/running-pods.png)
+![Running Pods](screenshots/running pods.png)
 
 ### 5.2 Test API via Ingress (HTTPS)
 
@@ -103,7 +101,7 @@ Expected Output:
 }
 ```
 
-![Curl Health Check](screenshots/api-curl.png)
+![Curl Health Check](screenshots/curl response health.png)
 
 ### 5.3 Test via Browser
 
@@ -113,7 +111,7 @@ Open:
 https://api.104.199.209.164.sslip.io/health
 ```
 
-![Browser Output](screenshots/api-browser.png)
+![Browser Output](screenshots/browser response health.png)
 
 ---
 
