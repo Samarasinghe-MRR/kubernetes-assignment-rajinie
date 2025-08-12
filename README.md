@@ -84,7 +84,7 @@ kubectl apply -f k8s/06-hpa.yaml
 kubectl get pods -n java-api
 ```
 
-![Running Pods](screenshots/running pods.png)
+![Running Pods](screenshots/running%20pods.png)
 
 ### 5.2 Test API via Ingress (HTTPS)
 
@@ -101,7 +101,7 @@ Expected Output:
 }
 ```
 
-![Curl Health Check](screenshots/curl response health.png)
+![Curl Health Check](screenshots/curl%20response%20health.png)
 
 ### 5.3 Test via Browser
 
@@ -111,7 +111,7 @@ Open:
 https://api.104.199.209.164.sslip.io/health
 ```
 
-![Browser Output](screenshots/browser response health.png)
+![Browser Output](screenshots/browser%20response%20health.png)
 
 ---
 
@@ -169,4 +169,4 @@ kubectl delete namespace java-api
 ---
 
 
-```
+
