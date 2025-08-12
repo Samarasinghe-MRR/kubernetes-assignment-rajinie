@@ -32,7 +32,6 @@ Run the following commands:
 gcloud auth login
 gcloud config set project betbazar-ops
 
----
 
 ```
 ## 3. Project Structure
