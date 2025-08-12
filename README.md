@@ -103,6 +103,29 @@ Expected Output:
 
 ![Curl Health Check](screenshots/curl%20response%20health.png)
 
+```bash
+curl -k https://api.104.199.209.164.sslip.io/users
+```
+
+Expected Output:
+
+```json
+[
+  {
+    "email": "john@example.com",
+    "name": "John Doe",
+    "id": 1
+  },
+  {
+    "email": "jane@example.com",
+    "name": "Jane Smith",
+    "id": 2
+  }
+]
+```
+
+![Curl Health Check](screenshots/curl%20response%20users.png)
+
 ### 5.3 Test via Browser
 
 Open:
@@ -113,6 +136,12 @@ https://api.104.199.209.164.sslip.io/health
 
 ![Browser Output](screenshots/browser%20response%20health.png)
 
+```
+https://api.104.199.209.164.sslip.io/api/users
+```
+
+![Browser Output](screenshots/browser%20response%20users.png)
+
 ---
 
 ## 6. Horizontal Pod Autoscaler
@@ -121,7 +150,6 @@ https://api.104.199.209.164.sslip.io/health
 kubectl get hpa -n java-api
 ```
 
-![HPA Status](screenshots/hpa-status.png)
 
 HPA is configured to:
 
@@ -166,7 +194,6 @@ kubectl delete namespace java-api
 
 ```
 
----
 
 
 
