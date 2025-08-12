@@ -192,7 +192,6 @@ kubectl delete namespace java-api
 **Author:** Rajinie Samarasinghe
 **Project:** DevOps Assignment – GKE Deployment with Ingress & HTTPS
 
-```
 
 
 
