@@ -164,4 +164,3 @@ kubectl delete namespace java-api
 
 ---
 
-```
