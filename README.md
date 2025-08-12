@@ -187,10 +187,6 @@ kubectl delete namespace java-api
 * ✅ **Testing Evidence:** curl and browser outputs
 * ✅ **Bonus:** HTTPS, autoscaling
 
----
-
-**Author:** Rajinie Samarasinghe
-**Project:** DevOps Assignment – GKE Deployment with Ingress & HTTPS
 
 
 
