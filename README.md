@@ -222,7 +222,7 @@ Configured in Grafana under:
 Settings → Data Sources → Add data source → Prometheus
 ```
 
-![Prometheus Data Source](screenshots/prometheus-datasource.png)
+![Prometheus Data Source](screenshots/setting%20up%20grafana.png)
 
 ### 7.5 Dashboards
 
