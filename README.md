@@ -1,3 +1,5 @@
+
+
 ---
 
 ````markdown
@@ -10,6 +12,8 @@ This project demonstrates deploying a containerized **Java Spring Boot API** to 
 - Kubernetes manifests (ConfigMap, Secrets, Deployment, Service, Ingress)
 - HTTPS support via sslip.io
 - **Horizontal Pod Autoscaling (HPA)** for scalability
+
+![Architecture Diagram](screenshots/architecture.png) <!-- Add your diagram here -->
 
 ---
 
@@ -57,6 +61,8 @@ api/
 docker build -t us-central1-docker.pkg.dev/betbazar-ops/java-api-repo/java-api:latest .
 docker push us-central1-docker.pkg.dev/betbazar-ops/java-api-repo/java-api:latest
 ```
+
+![Artifact Registry](screenshots/artifact-registry.png)
 
 ### 4.2 Deploy to GKE
 
@@ -164,3 +170,5 @@ kubectl delete namespace java-api
 
 ---
 
+
+```
