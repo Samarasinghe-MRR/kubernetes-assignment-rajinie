@@ -34,6 +34,7 @@ gcloud config set project betbazar-ops
 
 ---
 
+```
 ## 3. Project Structure
 
 ```
