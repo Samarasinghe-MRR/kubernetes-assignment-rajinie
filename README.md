@@ -1,8 +1,5 @@
 
 
----
-
-````markdown
 # Java Spring Boot API Deployment on GKE with Ingress & HTTPS
 
 ## 1. Project Overview
@@ -13,24 +10,27 @@ This project demonstrates deploying a containerized **Java Spring Boot API** to 
 - HTTPS support via sslip.io
 - **Horizontal Pod Autoscaling (HPA)** for scalability
 
-
 ---
 
 ## 2. Prerequisites
-Ensure you have:
+Ensure you have the following:
+
+### Google Cloud Setup
 - **Google Cloud Project** with:
   - Artifact Registry API enabled
   - Kubernetes Engine API enabled
   - Compute Engine API enabled
-- Installed locally:
-  - [Docker](https://docs.docker.com/get-docker/)
-  - [kubectl](https://kubernetes.io/docs/tasks/tools/)
-  - [gcloud CLI](https://cloud.google.com/sdk/docs/install)
-- GCP authenticated:
+
+### Local Tools Installed
+- [Docker](https://docs.docker.com/get-docker/)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)
+- [gcloud CLI](https://cloud.google.com/sdk/docs/install)
+
+### Authenticate with GCP
+Run the following commands:
 ```bash
 gcloud auth login
 gcloud config set project betbazar-ops
-````
 
 ---
 
