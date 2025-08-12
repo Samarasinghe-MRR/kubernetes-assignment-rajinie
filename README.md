@@ -160,7 +160,82 @@ HPA is configured to:
 
 ---
 
-## 7. Customizations & Issues
+
+## 7. Monitoring with Prometheus & Grafana
+
+### 7.1 Setup
+
+Monitoring is implemented using **Prometheus Operator** and **Grafana** via the [kube-prometheus-stack Helm chart](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack).
+
+**Installation:**
+
+```bash
+# Add Helm repo
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+# Create monitoring namespace
+kubectl create namespace monitoring
+
+# Install Prometheus + Grafana stack
+helm install monitoring prometheus-community/kube-prometheus-stack -n monitoring
+```
+
+### 7.2 Grafana Access via Ingress
+
+An Ingress resource is created for Grafana using `sslip.io` DNS mapping:
+
+```bash
+kubectl apply -f k8s/grafana-ingress.yaml
+```
+
+Ingress URL:
+
+```
+https://grafana.104.199.209.164.sslip.io
+```
+
+![Grafana Dashboard](screenshots/grafana-dashboard.png)
+
+### 7.3 Login Credentials
+
+Default Grafana credentials:
+
+* **User:** `admin`
+* **Password:** Retrieved from Kubernetes secret:
+
+```bash
+kubectl get secret monitoring-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 --decode
+```
+
+### 7.4 Prometheus Integration in Grafana
+
+Prometheus service:
+
+```
+monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
+```
+
+Configured in Grafana under:
+
+```
+Settings → Data Sources → Add data source → Prometheus
+```
+
+![Prometheus Data Source](screenshots/prometheus-datasource.png)
+
+### 7.5 Dashboards
+
+* **Kubernetes Cluster Monitoring** — Nodes, Pods, CPU, Memory usage
+* **API Service Metrics** — Request rate, latency, error rates (via `Spring Boot Actuator` + `micrometer`)
+
+![Cluster Metrics](screenshots/cluster-metrics.png)
+
+
+---
+
+
+## 8. Customizations & Issues
 
 * **Probes Tuned:** Increased `initialDelaySeconds` for liveness/readiness to avoid startup failures.
 * **DNS Simplification:** Used sslip.io instead of registering a custom domain.
@@ -169,7 +244,7 @@ HPA is configured to:
 
 ---
 
-## 8. Cleanup
+## 9. Cleanup
 
 To remove resources:
 
@@ -179,7 +254,7 @@ kubectl delete namespace java-api
 
 ---
 
-## 9. Deliverables Checklist
+## 10. Deliverables Checklist
 
 * ✅ **Source Code:** Java Spring Boot app + Dockerfile
 * ✅ **Kubernetes Manifests:** ConfigMaps, Secrets, Deployment, Service, Ingress, HPA
